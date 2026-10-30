@@ -127,4 +127,26 @@ GitHub: [Aptha903](https://github.com/Aptha903)
 
 ---
 
-*Built to make studying and retrieving information from PDF notes easier with AI.*
+RAG Evaluation
+
+The RAG Study Assistant was manually evaluated using 15 test questions based on the uploaded PDF documents.
+
+Evaluation Results
+
+Metric| Result
+Total Test Questions| 15
+Correctly Retrieved Passages| 15
+Incorrect Retrievals| 0
+Retrieval Accuracy| 100%
+
+Evaluation Methodology
+
+1. Prepared 15 questions based on the uploaded PDF content.
+2. Submitted each question to the RAG chatbot.
+3. Examined the retrieved source passages.
+4. Verified whether the relevant information was retrieved correctly.
+5. Calculated retrieval accuracy based on the results.
+
+Retrieval Accuracy: (15 / 15) × 100 = 100%
+
+Note: This was a manual evaluation using a small test dataset. Performance may vary with different documents and question types.
