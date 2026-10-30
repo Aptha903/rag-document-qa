@@ -1,152 +1,167 @@
-# 📚 AI-Powered Study Assistant (RAG)
+RAG Document Q&A Study Assistant
 
-An AI-powered study companion that answers questions from PDF study notes using Retrieval-Augmented Generation (RAG). It retrieves relevant information from documents and generates contextual answers with source references.
+An AI-powered document question-answering application that allows users to upload PDF documents and ask questions based on their content.
 
-## ✨ Features
+The application uses Retrieval-Augmented Generation (RAG) to retrieve relevant information from uploaded documents and generate context-aware answers using a Large Language Model (LLM).
 
-* **PDF Upload:** Add study materials in PDF format.
-* **Semantic Search:** Uses Sentence Transformers and FAISS to find relevant document chunks.
-* **AI-Powered Answers:** Generates answers using the Groq API.
-* **Source References:** Displays source document names and page numbers.
-* **Interactive Interface:** Built with Streamlit.
-* **REST API:** FastAPI backend for document uploads and question answering.
+Instead of searching through lengthy PDF documents manually, users can ask questions and receive answers along with source references, including document names and page numbers.
 
-## 🛠️ Tech Stack
+Features
 
-* Python
-* FastAPI
-* Streamlit
-* FAISS
-* Sentence Transformers
-* Groq API
-* PyPDF
+- PDF Upload: Upload PDF documents through the web interface.
+- Document Processing: Extract and divide document content into smaller text chunks.
+- Semantic Search: Generate embeddings using Sentence Transformers.
+- Vector Search: Store and retrieve relevant text chunks using FAISS.
+- AI-Powered Answers: Use the Groq LLM API to generate answers based on retrieved document content.
+- Source References: Display the source PDF filename and page number for retrieved information.
+- Retrieved Context: Display the relevant passages retrieved from the uploaded documents.
+- Context-Based Responses: Answer questions using the available document context rather than relying on unrelated information.
 
-## 🏗️ Architecture
+Technologies Used
 
-1. Upload PDF study notes.
-2. Extract and split document text into chunks.
-3. Convert chunks into embeddings using Sentence Transformers.
-4. Store and search embeddings using FAISS.
-5. Retrieve relevant chunks for a user's question.
-6. Generate a contextual answer using the Groq API.
-7. Display the answer and source references in the Streamlit interface.
+Technology| Purpose
+Python| Backend development and document processing
+FastAPI| Building REST API endpoints
+FAISS| Vector storage and similarity search
+Sentence Transformers| Generating text embeddings
+Groq LLM API| Generating natural-language answers
+Streamlit| Python-based application interface
+HTML| Frontend structure
+CSS| Frontend styling
+JavaScript| Frontend interactions and API communication
 
-## 📁 Project Structure
+How It Works
 
-```text
+The application follows a Retrieval-Augmented Generation (RAG) workflow.
+
+1. PDF Upload: The user uploads a PDF document.
+2. Text Extraction: The application extracts text and divides it into smaller chunks.
+3. Embedding Generation: Sentence Transformers converts the text chunks into numerical embeddings.
+4. Vector Storage: FAISS stores the embeddings for efficient similarity search.
+5. Question Processing: The user enters a question through the frontend.
+6. Information Retrieval: The question is converted into an embedding, and FAISS retrieves relevant document passages.
+7. Answer Generation: The retrieved passages are provided as context to the Groq LLM API.
+8. Response Display: The application displays the generated answer, source references, and retrieved passages.
+
+Project Structure
+
 rag-document-qa/
-├── api.py
-├── app.py
-├── ingest.py
-├── search.py
-├── list_models.py
-├── read_test.py
-├── test_llm.py
-├── .gitignore
-└── README.md
-```
+│
+├── frontend/
+│   ├── index.html          # Frontend structure
+│   ├── style.css           # Frontend styling
+│   └── script.js           # Frontend logic and API calls
+│
+├── api.py                  # FastAPI backend and API endpoints
+├── app.py                  # Streamlit application
+├── ingest.py               # PDF processing and document ingestion
+├── search.py               # Document retrieval and vector search
+├── rank.py                 # Ranking-related functionality
+│
+├── chunks.json             # Stored document chunks and metadata
+├── index.faiss             # FAISS vector index
+├── requirements.txt        # Python dependencies
+├── .env                    # API credentials and configuration
+└── README.md               # Project documentation
 
-## ⚙️ Setup and Installation
+Note: The ".env" file contains API credentials and should not be uploaded to GitHub.
 
-### 1. Clone the repository
+Installation and Setup
 
-```bash
-git clone https://github.com/Aptha903/rag-document-qa.git
+1. Clone the Repository
+
+git clone YOUR_GITHUB_REPOSITORY_URL
+
+Navigate into the project directory:
+
 cd rag-document-qa
-```
 
-### 2. Create and activate a virtual environment
+2. Create a Virtual Environment
 
-On Windows PowerShell:
-
-```powershell
 python -m venv venv
-.\venv\Scripts\Activate.ps1
-```
 
-### 3. Install dependencies
+Activate the environment.
 
-```bash
-python -m pip install fastapi uvicorn streamlit requests python-dotenv openai sentence-transformers faiss-cpu numpy pypdf python-multipart
-```
+Windows:
 
-### 4. Configure environment variables
+venv\Scripts\activate
 
-Create a `.env` file in the project root:
+3. Install Dependencies
 
-```env
-LLM_API_KEY=your_groq_api_key
-LLM_BASE_URL=https://api.groq.com/openai/v1
-LLM_MODEL=openai/gpt-oss-20b
-```
+pip install -r requirements.txt
 
-Replace `your_groq_api_key` with your own Groq API key. Never commit your actual API key to GitHub.
+4. Configure Environment Variables
 
-### 5. Prepare the document index
+Create a ".env" file in the project root directory and add your Groq API key using the environment variable name expected by your application.
 
-Use the document-ingestion script and the PDF files appropriate for your setup to generate the document chunks and FAISS index. Follow the commands and file paths defined in `ingest.py`.
+GROQ_API_KEY=your_groq_api_key
 
-### 6. Start the FastAPI backend
+Do not share or commit your actual API key.
 
-Open a terminal and run:
+Running the Application
 
-```powershell
-uvicorn api:app --reload --port 8000
-```
+1. Start the FastAPI Backend
 
-API documentation: http://127.0.0.1:8000/docs
+From the project root directory, run:
 
-### 7. Start the Streamlit application
+uvicorn api:app --reload
 
-Open a second terminal in the project folder, activate the virtual environment, and run:
+The backend will be available at:
 
-```powershell
-python -m streamlit run app.py --server.port 8506
-```
+http://127.0.0.1:8000
 
-Open http://localhost:8506 in your browser.
+To explore and test the API endpoints, open:
 
-## 🔐 Security
+http://127.0.0.1:8000/docs
 
-* API keys are stored in environment variables.
-* `.env` and virtual environments are excluded using `.gitignore`.
-* Indexed document data is excluded from the repository by default.
+2. Start the Frontend
 
-## 🚀 Future Improvements
+1. Open the "frontend" folder in Visual Studio Code.
+2. Open "index.html".
+3. Right-click and select Open with Live Server.
+4. The application will open in your browser.
 
-* Support for additional document formats.
-* Improved retrieval and answer evaluation.
-* Conversation memory and enhanced chat history.
-* Deployment to a cloud hosting platform.
+Make sure the FastAPI backend is running while using the frontend.
 
-## 👩‍💻 Author
+API Endpoints
 
-**Aptha H P**
+Method| Endpoint| Description
+POST| "/upload"| Upload and process a PDF document
+POST| "/ask"| Submit a question and retrieve an answer
 
-GitHub: [Aptha903](https://github.com/Aptha903)
+The "/ask" endpoint returns:
 
----
+- "answer" – Generated response.
+- "sources" – Source document names, page numbers, and retrieval scores.
+- "retrieved_context" – Relevant text passages retrieved from the uploaded documents.
 
-RAG Evaluation
+Testing and Evaluation
 
-The RAG Study Assistant was manually evaluated using 15 test questions based on the uploaded PDF documents.
+The application was manually tested using a set of 15 questions to evaluate document-based question answering.
 
-Evaluation Results
+Testing included:
 
-Metric| Result
-Total Test Questions| 15
-Correctly Retrieved Passages| 15
-Incorrect Retrievals| 0
-Retrieval Accuracy| 100%
+- Asking questions related to uploaded PDF content.
+- Checking whether relevant passages were retrieved.
+- Verifying generated answers against the document content.
+- Checking source filenames and page references.
+- Testing questions unrelated to the uploaded document.
 
-Evaluation Methodology
+An out-of-context question such as "What is the capital of India?" was tested to check whether the application could avoid answering questions unsupported by the uploaded document context.
 
-1. Prepared 15 questions based on the uploaded PDF content.
-2. Submitted each question to the RAG chatbot.
-3. Examined the retrieved source passages.
-4. Verified whether the relevant information was retrieved correctly.
-5. Calculated retrieval accuracy based on the results.
+The application returned an appropriate response indicating that the information was not available in the provided context.
 
-Retrieval Accuracy: (15 / 15) × 100 = 100%
+The manually tested questions produced the expected results in the test set. This is an initial functional evaluation and does not represent a guarantee of accuracy for all documents or questions.
 
-Note: This was a manual evaluation using a small test dataset. Performance may vary with different documents and question types.
+Future Improvements
+
+- Support for multiple document formats.
+- Improved document retrieval and ranking.
+- Chat history and conversational memory.
+- More comprehensive automated evaluation.
+- Improved handling of ambiguous questions.
+- Support for multiple PDF uploads and document collections.
+
+Author
+
+Developed as a personal project to explore Retrieval-Augmented Generation, Large Language Models, semantic search, vector databases, and API-based application development.

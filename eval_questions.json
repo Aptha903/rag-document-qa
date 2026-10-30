@@ -1,0 +1,108 @@
+[
+{
+    "q": "Does the in operator look at keys or values when used on a dictionary?",
+    "source": "1BPLC105B205B_Mod3.pdf",
+    "page": 7,
+    "keyword": "only keys" },
+{
+    "q": "What happens to the original dictionary if I change a variable that is just assigned from it?",
+    "source": "1BPLC105B205B_Mod3.pdf",
+    "page": 8,
+    "keyword": "same dictionary" },
+{
+    "q": "What is a mask in NumPy and how is it created?",
+    "source": "1BPLC105B205B_Mod3.pdf",
+    "page": 16,
+    "keyword": "Boolean array" }, {
+    "q": "How do I pick out one full column from a 2D NumPy array?",
+    "source": "1BPLC105B205B_Mod3.pdf",
+    "page": 15,
+    "keyword": "b[:, 1]"
+},
+{
+    "q": "Why can't a (2,3) array be multiplied with a (2,) array directly?",
+    "source": "1BPLC105B205B_Mod3.pdf",
+    "page": 20,
+    "keyword": "broadcasting fails"
+},
+{
+    "q": "Why does adding 200 + 200 in a uint8 array give 144 instead of 400?",
+    "source": "1BPLC105B205B_Mod3.pdf",
+    "page": 23,
+    "keyword": "wraps around" }, {
+    "q": "What happens if I open a file in write mode and the file already exists?",
+    "source": "1BPLC105B205B_Mod3.pdf",
+    "page": 27,
+    "keyword": "erased and replaced"},
+{
+    "q": "How do I get a random whole number from 1 to 6 using a random generator object?",
+    "source": "1BPLC105B205B_Mod4_azdocuments_in.pdf",
+    "page": 1,
+    "keyword": "randrange" },
+{
+    "q": "Why would I set a fixed seed for a random number generator?",
+    "source": "1BPLC105B205B_Mod4_azdocuments_in.pdf",
+    "page": 3,
+    "keyword": "seed" },
+{
+    "q": "What goes wrong when I ask for 10 unique random numbers from a range that only has 5 values?",
+    "source": "1BPLC105B205B_Mod4_azdocuments_in.pdf",
+    "page": 6,
+    "keyword": "infinite loop"
+},
+{
+    "q": "In what order does Python search scopes when it meets a variable name?",
+    "source": "1BPLC105B205B_Mod4_azdocuments_in.pdf",
+    "page": 15,
+    "keyword": "Local scope"
+}, {
+    "q": "What are the different ways to import from a module and which one is safest?",
+    "source": "1BPLC105B205B_Mod4_azdocuments_in.pdf",
+    "page": 18,
+    "keyword": "from math import"
+},
+{
+    "q": "What is the job of the __init__ method in a class?",
+    "source": "1BPLC105B205B_Mod4_azdocuments_in.pdf",
+    "page": 25,
+    "keyword": "initializer"
+},
+{
+    "q": "Why define __str__ in a class instead of writing a to_string method?",
+    "source": "1BPLC105B205B_Mod4_azdocuments_in.pdf",
+    "page": 34,
+    "keyword": "__str__"
+}, {
+    "q": "What is the difference between using is and == on two Point objects with same coordinates?",
+    "source": "1BPLC105B205B_Mod5_azdocuments_in.pdf",
+    "page": 5,
+    "keyword": "shallow equality"
+},
+{
+    "q": "Why is a shallow copy of a Rectangle risky when it contains a Point?",
+    "source": "1BPLC105B205B_Mod5_azdocuments_in.pdf",
+    "page": 7,
+    "keyword": "same Point"
+},
+{
+    "q": "What makes a function a pure function?",
+    "source": "1BPLC105B205B_Mod5_azdocuments_in.pdf",
+    "page": 9,
+    "keyword": "does not modify"
+},{
+    "q": "How can a time in hours, minutes and seconds be treated as a base 60 number?",
+    "source": "1BPLC105B205B_Mod5_azdocuments_in.pdf",
+    "page": 17,
+    "keyword": "base 60" }, {
+    "q": "What is duck typing in Python?",
+    "source": "1BPLC105B205B_Mod5_azdocuments_in.pdf",
+    "page": 31,
+    "keyword": "duck typing"
+},
+{
+    "q": "When do the else and finally parts of a try statement run?",
+    "source": "1BPLC105B205B_Mod5_azdocuments_in.pdf",
+    "page": 35,
+    "keyword": "finally"
+}
+]

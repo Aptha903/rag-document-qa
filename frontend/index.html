@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RAG Study Assistant</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-icon">📚</div>
+
+                <div>
+                    <h2>Study Assistant</h2>
+                    <span>AI Document Learning</span>
+                </div>
+            </div>
+
+            <div class="sidebar-divider"></div>
+
+            <!-- Upload Section -->
+            <section class="upload-section">
+
+                <h3>Upload Documents</h3>
+
+                <p>
+                    Upload your PDF notes and ask questions
+                    based on their content.
+                </p>
+
+                <div class="upload-box">
+
+                    <div class="upload-icon">📄</div>
+
+                    <label for="pdfFile">
+                        Choose a PDF file
+                    </label>
+
+                    <input
+                        type="file"
+                        id="pdfFile"
+                        accept=".pdf,application/pdf"
+                    >
+
+                </div>
+
+                <button id="uploadBtn">
+                    Upload PDF
+                </button>
+
+                <div id="uploadStatus">
+                    No document uploaded yet.
+                </div>
+
+            </section>
+
+            <div class="sidebar-divider"></div>
+
+            <div class="sidebar-info">
+
+                <h3>How it works</h3>
+
+                <div class="info-item">
+                    <span>01</span>
+                    <p>Upload your study material.</p>
+                </div>
+
+                <div class="info-item">
+                    <span>02</span>
+                    <p>Ask questions about your PDF.</p>
+                </div>
+
+                <div class="info-item">
+                    <span>03</span>
+                    <p>Get answers with source references.</p>
+                </div>
+
+            </div>
+
+            <div class="sidebar-footer">
+                Intelligent learning powered by AI.
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CHAT AREA -->
+        <main class="chat-area">
+
+            <!-- HEADER -->
+            <header class="chat-header">
+
+                <div>
+                    <h1>RAG Study Assistant</h1>
+
+                    <p>
+                        Your personal AI-powered document learning companion.
+                    </p>
+                </div>
+
+                <div class="rag-badge">
+                    <span class="status-dot"></span>
+                    Powered by RAG
+                </div>
+
+            </header>
+
+
+            <!-- CHAT MESSAGES -->
+            <div id="chatMessages">
+
+                <!-- Welcome Screen -->
+                <div class="welcome-screen">
+
+                    <div class="welcome-icon">
+                        🎓
+                    </div>
+
+                    <h2>Welcome to Study Assistant</h2>
+
+                    <p class="welcome-description">
+                        Learn smarter with your own documents.
+                        Upload your PDF notes and ask questions
+                        to get clear, context-based answers.
+                    </p>
+
+                    <div class="suggestion-heading">
+                        Try asking questions like:
+                    </div>
+
+                    <div class="suggestion-list">
+
+                        <div class="suggestion-card">
+                            <span>📖</span>
+                            Explain an important concept.
+                        </div>
+
+                        <div class="suggestion-card">
+                            <span>🔍</span>
+                            Find information from my notes.
+                        </div>
+
+                        <div class="suggestion-card">
+                            <span>📝</span>
+                            Summarise a topic from my PDF.
+                        </div>
+
+                    </div>
+
+                    <div class="welcome-note">
+                        Answers are generated using your uploaded documents.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION INPUT -->
+            <div class="input-area">
+
+                <input
+                    type="text"
+                    id="questionInput"
+                    placeholder="Ask a question about your uploaded documents..."
+                    autocomplete="off"
+                >
+
+                <button id="sendBtn">
+                    Send ➤
+                </button>
+
+            </div>
+
+            <div class="input-footer">
+                AI-generated responses are based on retrieved document context.
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
